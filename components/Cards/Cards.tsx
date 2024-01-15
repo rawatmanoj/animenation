@@ -22,6 +22,7 @@ const ReusableCard = ({ imageUrl, title }: ReusableCardTypes) => {
         width={185}
         height={264}
         loading="eager"
+        quality={10}
       />
       <div className="pt-1">
         <div className="text-sm font-semibold mb-2 w-3/4">{title.english}</div>
