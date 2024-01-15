@@ -12,7 +12,7 @@ export type SliderProps = {
 export default function Slider({ result, heading }: SliderProps) {
   return (
     <div className="mt-10 ">
-      <div className="text-2xl ml-2">{heading}</div>
+      <div className="text-2xl pl-2">{heading}</div>
       <Carousel
         itemAriaLabel="dv"
         additionalTransfrom={0}

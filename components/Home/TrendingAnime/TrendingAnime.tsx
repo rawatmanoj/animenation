@@ -11,7 +11,7 @@ export default async function PopularAnime() {
     });
   };
   const animeProvider = new META.Anilist();
-  const trendingAnime = await delay(animeProvider.fetchTrendingAnime());
+  const trendingAnime = await animeProvider.fetchTrendingAnime();
 
   return <Slider result={trendingAnime} heading="Trending Anime" />;
 }
