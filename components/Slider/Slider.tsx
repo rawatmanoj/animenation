@@ -11,7 +11,7 @@ export type SliderProps = {
 };
 export default function Slider({ result, heading }: SliderProps) {
   return (
-    <div className="mt-10 ">
+    <div className="mt-10 overflow-hidden">
       <div className="text-2xl pl-2">{heading}</div>
       <Carousel
         itemAriaLabel="dv"
@@ -19,8 +19,8 @@ export default function Slider({ result, heading }: SliderProps) {
         arrows
         autoPlaySpeed={3000}
         centerMode={false}
-        className="flex justify-center items-center"
-        // containerClass="w-40"
+        // className="w-screen"
+        containerClass=" w-screen "
         dotListClass=""
         draggable
         focusOnSelect={false}
