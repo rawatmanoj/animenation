@@ -8,9 +8,10 @@ export type SliderProps = {
   heading: string;
 };
 export default function Slider({ result, heading }: SliderProps) {
+  console.log(JSON.stringify(result?.results[0]), "resultresult");
   return (
     <div className="mt-10 ">
-      <div className="text-2xl pl-2">{heading}</div>
+      <div className="text-md md:text-2xl  pl-2 font-bold">{heading}</div>
       <Carousel
         ssr
         itemAriaLabel="dv"
@@ -53,7 +54,7 @@ export default function Slider({ result, heading }: SliderProps) {
               max: 1024,
               min: 464,
             },
-            items: 6,
+            items: 5,
             partialVisibilityGutter: 30,
           },
         }}
@@ -72,6 +73,7 @@ export default function Slider({ result, heading }: SliderProps) {
               imageUrl={info.image}
               title={info?.title as ReusableCardTypes["title"]}
               key={info.id}
+              rating={info?.rating}
             />
           );
         })}

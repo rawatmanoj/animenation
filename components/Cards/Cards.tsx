@@ -10,11 +10,15 @@ export type ReusableCardTypes = {
     native: string;
     userPreferred: string;
   };
+  rating: number | undefined;
 };
 
-const ReusableCard = ({ imageUrl, title }: ReusableCardTypes) => {
+const ReusableCard = ({ imageUrl, title, rating }: ReusableCardTypes) => {
   return (
-    <div className="m-2">
+    <div className="m-2 relative">
+      <div className="font-bold rounded-md m-1 p-1 h-1/8 bg-black opacity-70 absolute text-xs text-white">
+        {rating && (rating / 10).toFixed(1)}
+      </div>
       <Image
         className="rounded-md shadow-md "
         src={imageUrl || ""}
@@ -25,7 +29,9 @@ const ReusableCard = ({ imageUrl, title }: ReusableCardTypes) => {
         quality={50}
       />
       <div className="pt-1">
-        <div className="text-sm font-semibold mb-2 w-3/4">{title.english}</div>
+        <div className="text-xs md:text-sm font-semibold mb-2 w-4/4 md:w-3/4">
+          {title.english}
+        </div>
       </div>
     </div>
   );
