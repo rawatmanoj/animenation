@@ -1,7 +1,5 @@
 "use client";
-import React from "react";
 import ReusableCard, { ReusableCardTypes } from "../Cards/Cards";
-import Slick from "react-slick";
 import { IAnimeResult, ISearch } from "@consumet/extensions";
 import Carousel from "react-multi-carousel";
 
@@ -11,16 +9,17 @@ export type SliderProps = {
 };
 export default function Slider({ result, heading }: SliderProps) {
   return (
-    <div className="mt-10 overflow-hidden">
+    <div className="mt-10 ">
       <div className="text-2xl pl-2">{heading}</div>
       <Carousel
+        ssr
         itemAriaLabel="dv"
         additionalTransfrom={0}
         arrows
         autoPlaySpeed={3000}
         centerMode={false}
         // className="w-screen"
-        containerClass=" w-screen "
+        containerClass=" max-w-screen "
         dotListClass=""
         draggable
         focusOnSelect={false}
@@ -46,7 +45,7 @@ export default function Slider({ result, heading }: SliderProps) {
               max: 464,
               min: 0,
             },
-            items: 4,
+            items: 3,
             partialVisibilityGutter: 30,
           },
           tablet: {
