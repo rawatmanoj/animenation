@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { Inter, Roboto, Lato } from "next/font/google";
 import "./globals.css";
 import "react-multi-carousel/lib/styles.css";
-import Header from "@/components/Header/Header";
+import Header from "@/components/Navbar/Navbar";
+import { Suspense } from "react";
+import HomeHeaderLoader from "@/components/HomeHeader/HomeHeaderLoader";
 const roboto = Roboto({ weight: "100", subsets: ["latin"] });
-const lato = Lato({ weight: "100", subsets: ["latin"] });
+const lato = Lato({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,9 +32,11 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
       </head>
-      <body className={`${lato.className} ml-2 mr-2 mb-2`}>
+      <body className={`${lato.className} text-white mr-2 mb-2`}>
         <Header />
-        {children}
+        <Suspense fallback={<HomeHeaderLoader />}>
+          <div className="pt-12 ml-2">{children}</div>
+        </Suspense>
       </body>
     </html>
   );

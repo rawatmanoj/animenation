@@ -8,7 +8,6 @@ export type SliderProps = {
   heading: string;
 };
 export default function Slider({ result, heading }: SliderProps) {
-  console.log(JSON.stringify(result?.results[0]), "resultresult");
   return (
     <div className="mt-10 ">
       <div className="text-md md:text-2xl  pl-2 font-bold">{heading}</div>
@@ -74,6 +73,7 @@ export default function Slider({ result, heading }: SliderProps) {
               title={info?.title as ReusableCardTypes["title"]}
               key={info.id}
               rating={info?.rating}
+              id={info?.id}
             />
           );
         })}

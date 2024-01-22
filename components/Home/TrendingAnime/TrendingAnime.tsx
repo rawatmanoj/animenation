@@ -1,8 +1,9 @@
+import { HomeHeaderProps } from "@/components/HomeHeader/HomeHeader";
 import Slider from "@/components/Slider/Slider";
 import { IAnimeResult, ISearch, META } from "@consumet/extensions";
 import React from "react";
 
-export default async function PopularAnime() {
+export default async function PopularAnime({ result }: HomeHeaderProps) {
   const delay = (func: any): Promise<ISearch<IAnimeResult> | undefined> => {
     return new Promise((res, rej) => {
       setTimeout(() => {
@@ -10,8 +11,6 @@ export default async function PopularAnime() {
       }, 5000);
     });
   };
-  const animeProvider = new META.Anilist();
-  const trendingAnime = await animeProvider.fetchTrendingAnime();
 
-  return <Slider result={trendingAnime} heading="Trending Anime" />;
+  return <Slider result={result} heading="Trending Anime" />;
 }

@@ -52,3 +52,111 @@ export const apiDelete = async <T>(url: string, config?: AxiosRequestConfig): Pr
   const response = await api.delete<T>(url, config);
   return response.data;
 };
+
+export const getAnime = async (id:any) => {
+  let query = `
+  {
+
+      Media(id:${id}) {
+        idMal
+        format
+        type
+        tags {
+          id
+          name
+        }
+        studios {
+          nodes {
+            id
+            name
+          }
+         
+        }
+        averageScore
+        description
+        popularity
+        seasonYear
+        season
+        favourites
+        countryOfOrigin
+        episodes
+        status
+        startDate {
+          year
+          month
+          day
+        }
+        endDate {
+          year
+          month
+          day
+        }
+        genres
+        recommendations(page:1,perPage:60,sort:RATING_DESC) {
+    
+          edges {
+            node {
+              id
+             rating
+              mediaRecommendation{
+                id
+                title {
+                  romaji
+                  english
+                  native
+                  userPreferred
+                }
+                bannerImage
+                coverImage {
+                  extraLarge
+                  large
+                  medium
+                  color
+                }
+              }
+            }
+          
+          }
+        }
+        
+       
+        rankings {
+      
+          rank
+        }
+        title {
+        
+        
+          userPreferred
+        }
+        coverImage {
+          large
+          medium
+      
+        }
+        bannerImage
+      }
+    }
+  
+  
+  `;
+
+
+  let url = 'https://graphql.anilist.co';
+  let options = (query:any) => {
+    return {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        query: query,
+        //variables: variables,
+      }),
+    };
+  }
+  const response = await fetch(url, options(query));
+  const res = await response.json();
+  return res.data;
+};
