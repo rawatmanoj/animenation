@@ -16,7 +16,7 @@ export type ReusableCardTypes = {
 
 const ReusableCard = ({ imageUrl, title, rating, id }: ReusableCardTypes) => {
   return (
-    <div className="m-2 relative min-h-[264px]">
+    <div className="m-2 relative">
       <div className="font-bold rounded-md m-1 p-1 h-1/8 bg-black opacity-70 absolute text-xs">
         {rating && (rating / 10).toFixed(1)}
       </div>
@@ -29,12 +29,14 @@ const ReusableCard = ({ imageUrl, title, rating, id }: ReusableCardTypes) => {
           height={264}
           loading="eager"
           quality={50}
-          style={{ minHeight: "264px" }}
+          // style={{ minHeight: "280px" }}
         />
       </Link>
       <div className="pt-1 w-40">
-        <div className="text-xs md:text-sm font-semibold mb-2 w-4/4 md:w-4/4">
-          {title.userPreferred}
+        <div className="text-xs md:text-sm font-semibold mb-2 w-3/4 md:w-4/4">
+          {title.userPreferred.length > 30
+            ? title.userPreferred?.slice(0, 30) + "..."
+            : title.userPreferred}
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ export type HomeHeaderProps = {
 };
 export default function HomeHeader({ result }: HomeHeaderProps) {
   return (
-    <div className="mt-10">
+    <div className="mt-5">
       <Carousel
         itemAriaLabel="dv"
         autoPlay
@@ -69,17 +69,17 @@ export default function HomeHeader({ result }: HomeHeaderProps) {
         {result?.results.map((info, index) => {
           if (index <= 10)
             return (
-              <div className="" style={{ width: "100%", height: "500px" }}>
+              <div className="w-full md:h-[500px] h-[300px]">
                 <Image
-                  className="rounded-md shadow-md opacity-20"
+                  className="rounded-md shadow-md opacity-25"
                   src={info?.cover || ""}
                   alt="Card Image"
                   loading="eager"
                   quality={50}
                   fill
                 />
-                <div className="pl-5 absolute pb-5 h-full w-7/12 flex flex-col  items-left justify-end">
-                  <div className="text-4xl mb-5">
+                <div className="pl-5 absolute pb-5 h-full w-11/12 sm:w-7/12 flex flex-col  items-left justify-end ">
+                  <div className="md:text-4xl text-xl mb-5">
                     {(info?.title as ReusableCardTypes["title"]).userPreferred
                       .length > 50
                       ? (
@@ -87,14 +87,6 @@ export default function HomeHeader({ result }: HomeHeaderProps) {
                         ).userPreferred?.slice(0, 50) + "..."
                       : (info?.title as ReusableCardTypes["title"])
                           .userPreferred}
-                  </div>
-
-                  <div>
-                    <div>
-                      {info?.description?.length > 50
-                        ? info?.description?.slice(0, 300) + "..."
-                        : info?.description}
-                    </div>
                   </div>
                 </div>
               </div>

@@ -21,7 +21,6 @@ export default async function Anime({ params: { id } }: AnimeProps) {
     const episodes = await anilist.fetchEpisodeSources(
       "hunter-x-hunter-2011-dub-episode-100"
     );
-    console.log(episodes, "episodes");
   } catch (error) {
     console.log(error);
     // animeInfo = await getAnime(id);

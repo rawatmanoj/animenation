@@ -20,19 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-base-color">
-      <head>
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-        />
-      </head>
-      <body className={`${lato.className} text-white mr-2 mb-2`}>
+      <body className={`${lato.className} text-white mb-2`}>
         <Header />
         <Suspense fallback={<HomeHeaderLoader />}>
           <div className="pt-12 ml-2">{children}</div>

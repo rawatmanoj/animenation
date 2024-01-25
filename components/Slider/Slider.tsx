@@ -9,7 +9,7 @@ export type SliderProps = {
 };
 export default function Slider({ result, heading }: SliderProps) {
   return (
-    <div className="mt-10 ">
+    <div className="mt-5 ">
       <div className="text-md md:text-2xl  pl-2 font-bold">{heading}</div>
       <Carousel
         ssr
@@ -19,7 +19,7 @@ export default function Slider({ result, heading }: SliderProps) {
         autoPlaySpeed={3000}
         centerMode={false}
         // className="w-screen"
-        containerClass=" max-w-screen "
+        containerClass=" max-w-screen xs:max-h-96 max-h-min"
         dotListClass=""
         draggable
         focusOnSelect={false}
