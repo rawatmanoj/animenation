@@ -3,8 +3,8 @@ import React from "react";
 
 export default function Loading() {
   return (
-    <div className="mt-10">
-      <div className="flex max-w-screen justify-between">
+    <div className="mt-10 max-w-screen overflow-hidden">
+      <div className="flex max-w-screen overflow-hidden justify-between">
         <div>
           <div
             className="rounded-md shadow-md animate-loading"

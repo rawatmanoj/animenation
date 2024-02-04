@@ -13,8 +13,8 @@ export default function Search() {
     route.push(`/search?search=${value}`);
   }
   return (
-    <div className="flex items-center justify-around mr-5 flex-2">
-      <FaSearch className="mr-2 text-2xl" />
+    <div className="flex items-center justify-around mr-5 flex-2 text-slate-300">
+      <FaSearch className="mr-2 text-2xl " />
       <form onSubmit={handleSearch}>
         <input
           //   type="submit"

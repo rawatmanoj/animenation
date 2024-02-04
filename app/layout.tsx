@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Roboto, Lato } from "next/font/google";
 import "./globals.css";
-import "react-multi-carousel/lib/styles.css";
 import Header from "@/components/Navbar/Navbar";
 import { Suspense } from "react";
 import HomeHeaderLoader from "@/components/HomeHeader/HomeHeaderLoader";
+import NextAuthProvider from "@/components/Providers/NextAuthProvider";
 const roboto = Roboto({ weight: "100", subsets: ["latin"] });
 const lato = Lato({ weight: "400", subsets: ["latin"] });
 
@@ -19,12 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="bg-base-color">
-      <body className={`${lato.className} text-white mb-2`}>
-        <Header />
-        <Suspense fallback={<HomeHeaderLoader />}>
-          <div className="pt-12 ml-2">{children}</div>
-        </Suspense>
+    <html lang="en">
+      <body className={`${lato.className} text-white mb-2 bg-base-color`}>
+        <NextAuthProvider>
+          <Header />
+          <Suspense fallback={<HomeHeaderLoader />}>
+            <div className="pt-12 ml-2">{children}</div>
+          </Suspense>
+        </NextAuthProvider>
       </body>
     </html>
   );

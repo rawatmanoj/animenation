@@ -11,7 +11,7 @@ export default function HomeHeader() {
           backgroundColor: "#22335e",
         }}
       ></div>
-      <div className="flex flex-row justify-around mt-10">
+      <div className="flex flex-row gap-2 justify-around mt-10 max-w-screen overflow-hidden">
         <div>
           <div
             className="rounded-md shadow-md animate-loading"

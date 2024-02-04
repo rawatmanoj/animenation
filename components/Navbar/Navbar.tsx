@@ -4,11 +4,13 @@ import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { IoIosNotifications } from "react-icons/io";
 import Search from "../Search/Search";
 import { FaUser } from "react-icons/fa";
+import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const Navbar = () => {
   // State to manage the navbar's visibility
   const [nav, setNav] = useState(false);
-
+  const session = useSession();
   // Toggle function to handle the navbar's display
   const handleNav = () => {
     setNav(!nav);
@@ -16,11 +18,11 @@ const Navbar = () => {
 
   // Array containing navigation items
   const navItems = [
-    { id: 1, text: "Home" },
-    { id: 2, text: "Movies" },
-    { id: 3, text: "Manga" },
-    { id: 4, text: "My List" },
-    { id: 5, text: "Contact" },
+    { id: 1, text: "Home", href: "/" },
+    { id: 2, text: "Movies", href: "" },
+    { id: 3, text: "Manga", href: "" },
+    { id: 4, text: "My List", href: "" },
+    { id: 5, text: "Contact", href: "" },
   ];
 
   return (
@@ -30,18 +32,20 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <ul className="hidden md:flex h-full gap-4 w-[100%] justify-center items-center">
           {navItems.map((item) => (
-            <li
-              key={item.id}
-              className="font-bold text-lg md:min-w-fit hover:text-[#FF4500] rounded-xl cursor-pointer duration-300"
-            >
-              {item.text}
-            </li>
+            <Link key={item.id} href={item?.href}>
+              <li className=" text-slate-300 font-bold text-lg md:min-w-fit hover:text-[#FF4500] rounded-xl cursor-pointer duration-300">
+                {item.text}
+              </li>
+            </Link>
           ))}
         </ul>
       </div>
       <section className="flex   items-center ">
         <Search />
-        <FaUser className="text-xl" />
+        {/* <FaUser className="text-xl" /> */}
+        <Link href={"/api/auth/signin"}>
+          {!session?.data ? <div>Sign In</div> : <FaUser className="text-xl" />}
+        </Link>
         <IoIosNotifications className="ml-2 mr-2 text-2xl" />
       </section>
 
@@ -66,12 +70,14 @@ const Navbar = () => {
 
         {/* Mobile Navigation Items */}
         {navItems.map((item) => (
-          <li
-            key={item.id}
-            className="font-bold text-xl p-4 border-b  duration-300 hover:text-[#FF4500] cursor-pointer border-gray-600"
-          >
-            {item.text}
-          </li>
+          <Link key={item.id} href={"/"}>
+            <li
+              key={item.id}
+              className="font-bold text-xl p-4 border-b  duration-300 hover:text-[#FF4500] cursor-pointer border-gray-600"
+            >
+              {item.text}
+            </li>
+          </Link>
         ))}
       </ul>
     </div>

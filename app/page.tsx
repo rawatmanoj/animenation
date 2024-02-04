@@ -5,22 +5,21 @@ import TrendingAnime from "@/components/Home/TrendingAnime/TrendingAnime";
 import { Suspense } from "react";
 import Loading from "../components/loading";
 import { IAnimeResult, ISearch, META } from "@consumet/extensions";
-import Carousel from "react-multi-carousel";
 import HomeHeader from "@/components/HomeHeader/HomeHeader";
 import HomeHeaderLoader from "@/components/HomeHeader/HomeHeaderLoader";
-
 export default async function Home() {
+  const animeProvider = new META.Anilist();
   const delay = (func: any): Promise<ISearch<IAnimeResult> | undefined> => {
     return new Promise((res, rej) => {
       setTimeout(() => {
         res(func);
-      }, 5000);
+      }, 10000);
     });
   };
-  const animeProvider = new META.Anilist();
-  const result = (await delay(animeProvider.fetchTrendingAnime())) || undefined;
+  const result = await animeProvider.fetchTrendingAnime();
+
   return (
-    <main className="flex flex-col min-h-screen min-w-screen">
+    <main className="flex flex-col min-h-screen min-w-screen ">
       <HomeHeader result={result} />
       <Suspense fallback={<Loading />}>
         <PopularAnime />
