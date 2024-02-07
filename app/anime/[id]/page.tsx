@@ -7,7 +7,8 @@ import { CiBookmark } from "react-icons/ci";
 import { FaBeer, FaStar } from "react-icons/fa";
 import { FaBookBookmark } from "react-icons/fa6";
 import { IoStarSharp } from "react-icons/io5";
-import axios from "axios";
+import VideoPlayer from "@/components/VideoPlayer/VideoPlayer";
+import Link from "next/link";
 type AnimeProps = {
   params: { id: string };
 };
@@ -15,12 +16,16 @@ type AnimeProps = {
 export default async function Anime({ params: { id } }: AnimeProps) {
   //   const errorAnimeProvider = new ANIME.Zoro();
   let animeInfo;
+  let res;
   const anilist = new META.Anilist();
   try {
     animeInfo = await anilist.fetchAnimeInfo(id);
-    // const episodes = await anilist.fetchEpisodeSources(
-    //   "hunter-x-hunter-2011-dub-episode-100"
-    // );
+    const subEps = await anilist
+      .fetchEpisodesListById(id, false, true)
+      .catch(() => null);
+    console.log(subEps, "subEps");
+
+    // const servers = await anilist.fetchAnilistInfoById(id);
   } catch (error) {
     console.log(error);
     // animeInfo = await getAnime(id);
@@ -52,7 +57,9 @@ export default async function Anime({ params: { id } }: AnimeProps) {
             fill
           />
           <div className="flex justify-between items-center relative bottom-[-40px]">
-            <Button>Watch now</Button>
+            <Link href={`/anime/watch/${id}`}>
+              <Button>Watch now</Button>
+            </Link>
           </div>
         </div>
         <div className="w-10/12 sm:w-9/12 lg:w-8/12  p-5">
