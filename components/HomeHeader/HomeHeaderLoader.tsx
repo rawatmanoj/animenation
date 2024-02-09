@@ -8,18 +8,18 @@ export default function HomeHeader() {
         style={{
           minWidth: "100%",
           minHeight: "600px",
-          backgroundColor: "#22335e",
+          backgroundColor: "#23252B",
         }}
       ></div>
       <div className="flex flex-row gap-2 justify-around mt-10 max-w-screen overflow-hidden">
         <div>
           <div
             className="rounded-md shadow-md animate-loading"
-            style={{ width: "182px", height: "264px", background: "#22335e" }}
+            style={{ width: "182px", height: "264px", background: "#23252B" }}
           ></div>
           <div className="pt-2">
             <div
-              style={{ background: "#22335e", width: "182px", height: "24px" }}
+              style={{ background: "#23252B", width: "182px", height: "24px" }}
               className="mb-2 animate-loading rounded-md shadow-md"
             ></div>
           </div>
@@ -27,11 +27,11 @@ export default function HomeHeader() {
         <div>
           <div
             className="rounded-md shadow-md animate-loading"
-            style={{ width: "182px", height: "264px", background: "#22335e" }}
+            style={{ width: "182px", height: "264px", background: "#23252B" }}
           ></div>
           <div className="pt-2">
             <div
-              style={{ background: "#22335e", width: "182px", height: "24px" }}
+              style={{ background: "#23252B", width: "182px", height: "24px" }}
               className="mb-2 animate-loading rounded-md shadow-md"
             ></div>
           </div>
@@ -39,11 +39,11 @@ export default function HomeHeader() {
         <div>
           <div
             className="rounded-md shadow-md animate-loading"
-            style={{ width: "182px", height: "264px", background: "#22335e" }}
+            style={{ width: "182px", height: "264px", background: "#23252B" }}
           ></div>
           <div className="pt-2">
             <div
-              style={{ background: "#22335e", width: "182px", height: "24px" }}
+              style={{ background: "#23252B", width: "182px", height: "24px" }}
               className="mb-2 animate-loading rounded-md shadow-md"
             ></div>
           </div>
@@ -51,11 +51,11 @@ export default function HomeHeader() {
         <div>
           <div
             className="rounded-md shadow-md animate-loading"
-            style={{ width: "182px", height: "264px", background: "#22335e" }}
+            style={{ width: "182px", height: "264px", background: "#23252B" }}
           ></div>
           <div className="pt-2">
             <div
-              style={{ background: "#22335e", width: "182px", height: "24px" }}
+              style={{ background: "#23252B", width: "182px", height: "24px" }}
               className="mb-2 animate-loading rounded-md shadow-md"
             ></div>
           </div>
@@ -63,11 +63,11 @@ export default function HomeHeader() {
         <div>
           <div
             className="rounded-md shadow-md animate-loading"
-            style={{ width: "182px", height: "264px", background: "#22335e" }}
+            style={{ width: "182px", height: "264px", background: "#23252B" }}
           ></div>
           <div className="pt-2">
             <div
-              style={{ background: "#22335e", width: "182px", height: "24px" }}
+              style={{ background: "#23252B", width: "182px", height: "24px" }}
               className="mb-2 animate-loading rounded-md shadow-md"
             ></div>
           </div>
@@ -75,11 +75,11 @@ export default function HomeHeader() {
         <div>
           <div
             className="rounded-md shadow-md animate-loading"
-            style={{ width: "182px", height: "264px", background: "#22335e" }}
+            style={{ width: "182px", height: "264px", background: "#23252B" }}
           ></div>
           <div className="pt-2">
             <div
-              style={{ background: "#22335e", width: "182px", height: "24px" }}
+              style={{ background: "#23252B", width: "182px", height: "24px" }}
               className="mb-2 animate-loading rounded-md shadow-md"
             ></div>
           </div>
@@ -87,11 +87,11 @@ export default function HomeHeader() {
         <div>
           <div
             className="rounded-md shadow-md animate-loading"
-            style={{ width: "182px", height: "264px", background: "#22335e" }}
+            style={{ width: "182px", height: "264px", background: "#23252B" }}
           ></div>
           <div className="pt-2">
             <div
-              style={{ background: "#22335e", width: "182px", height: "24px" }}
+              style={{ background: "#23252B", width: "182px", height: "24px" }}
               className="mb-2 animate-loading rounded-md shadow-md"
             ></div>
           </div>
@@ -99,11 +99,11 @@ export default function HomeHeader() {
         <div>
           <div
             className="rounded-md shadow-md animate-loading"
-            style={{ width: "182px", height: "264px", background: "#22335e" }}
+            style={{ width: "182px", height: "264px", background: "#23252B" }}
           ></div>
           <div className="pt-2">
             <div
-              style={{ background: "#22335e", width: "182px", height: "24px" }}
+              style={{ background: "#23252B", width: "182px", height: "24px" }}
               className="mb-2 animate-loading rounded-md shadow-md"
             ></div>
           </div>

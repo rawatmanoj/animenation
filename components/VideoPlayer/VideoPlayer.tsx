@@ -5,8 +5,15 @@ import { Options } from "plyr";
 import "plyr/dist/plyr.css";
 import Hls from "hls.js";
 
-export default function VideoPlayer({ resources, referer, className }: any) {
+export default function VideoPlayer({
+  resources,
+  referer,
+  className,
+  isPendingTrans,
+}: any) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  console.log(resources, "resourcesresources");
 
   useEffect(() => {
     const Plyr = require("plyr");
@@ -57,15 +64,26 @@ export default function VideoPlayer({ resources, referer, className }: any) {
         "This is an old browser that does not support MSE https://developer.mozilla.org/en-US/docs/Web/API/Media_Source_Extensions_API"
       );
     }
-  }, []);
-
+  }, [resources, referer]);
+  if (isPendingTrans) {
+    return <div>Loading...</div>;
+  }
   return (
-    <video
-      data-displaymaxtap
-      ref={videoRef}
-      // style={{ width: "100%", height: "100%" }}
-      // className="w-12 h-12"
-      // Update progress
-    />
+    <div>
+      {!isPendingTrans ? (
+        <div>
+          <video
+            data-displaymaxtap
+            ref={videoRef}
+
+            // style={{ width: "100%", height: "100%" }}
+            // className="w-12 h-12"
+            // Update progress
+          />
+        </div>
+      ) : (
+        <div>Loading...</div>
+      )}
+    </div>
   );
 }

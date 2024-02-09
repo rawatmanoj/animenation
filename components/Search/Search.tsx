@@ -18,7 +18,7 @@ export default function Search() {
       <form onSubmit={handleSearch}>
         <input
           //   type="submit"
-          className="bg-[#141f38] rounded pl-2 pt-1 pb-1 text-xl"
+          className="bg-base-color rounded pl-2 pt-1 pb-1 text-xl"
           width={400}
           height={80}
           name="search"

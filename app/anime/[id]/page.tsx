@@ -17,14 +17,9 @@ export default async function Anime({ params: { id } }: AnimeProps) {
   //   const errorAnimeProvider = new ANIME.Zoro();
   let animeInfo;
   let res;
-  const anilist = new META.Anilist();
+  const anilist = new META.Anilist(new ANIME.Gogoanime());
   try {
     animeInfo = await anilist.fetchAnimeInfo(id);
-    const subEps = await anilist
-      .fetchEpisodesListById(id, false, true)
-      .catch(() => null);
-    console.log(subEps, "subEps");
-
     // const servers = await anilist.fetchAnilistInfoById(id);
   } catch (error) {
     console.log(error);
@@ -57,7 +52,14 @@ export default async function Anime({ params: { id } }: AnimeProps) {
             fill
           />
           <div className="flex justify-between items-center relative bottom-[-40px]">
-            <Link href={`/anime/watch/${id}`}>
+            <Link
+              href={`/anime/watch/${id}?episode=${
+                (animeInfo &&
+                  animeInfo?.episodes &&
+                  animeInfo?.episodes[0].id) ||
+                ""
+              }`}
+            >
               <Button>Watch now</Button>
             </Link>
           </div>

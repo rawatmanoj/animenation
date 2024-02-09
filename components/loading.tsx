@@ -8,11 +8,11 @@ export default function Loading() {
         <div>
           <div
             className="rounded-md shadow-md animate-loading"
-            style={{ width: "182px", height: "264px", background: "#22335e" }}
+            style={{ width: "182px", height: "264px", background: "#23252B" }}
           ></div>
           <div className="pt-2">
             <div
-              style={{ background: "#22335e", width: "182px", height: "24px" }}
+              style={{ background: "#23252B", width: "182px", height: "24px" }}
               className="mb-2 animate-loading rounded-md shadow-md"
             ></div>
           </div>
@@ -20,11 +20,11 @@ export default function Loading() {
         <div>
           <div
             className="rounded-md shadow-md animate-loading"
-            style={{ width: "182px", height: "264px", background: "#22335e" }}
+            style={{ width: "182px", height: "264px", background: "#23252B" }}
           ></div>
           <div className="pt-2">
             <div
-              style={{ background: "#22335e", width: "182px", height: "24px" }}
+              style={{ background: "#23252B", width: "182px", height: "24px" }}
               className="mb-2 animate-loading rounded-md shadow-md"
             ></div>
           </div>
@@ -32,11 +32,11 @@ export default function Loading() {
         <div>
           <div
             className="rounded-md shadow-md animate-loading"
-            style={{ width: "182px", height: "264px", background: "#22335e" }}
+            style={{ width: "182px", height: "264px", background: "#23252B" }}
           ></div>
           <div className="pt-2">
             <div
-              style={{ background: "#22335e", width: "182px", height: "24px" }}
+              style={{ background: "#23252B", width: "182px", height: "24px" }}
               className="mb-2 animate-loading rounded-md shadow-md"
             ></div>
           </div>
@@ -44,11 +44,11 @@ export default function Loading() {
         <div>
           <div
             className="rounded-md shadow-md animate-loading"
-            style={{ width: "182px", height: "264px", background: "#22335e" }}
+            style={{ width: "182px", height: "264px", background: "#23252B" }}
           ></div>
           <div className="pt-2">
             <div
-              style={{ background: "#22335e", width: "182px", height: "24px" }}
+              style={{ background: "#23252B", width: "182px", height: "24px" }}
               className="mb-2 animate-loading rounded-md shadow-md"
             ></div>
           </div>
@@ -56,11 +56,11 @@ export default function Loading() {
         <div>
           <div
             className="rounded-md shadow-md animate-loading"
-            style={{ width: "182px", height: "264px", background: "#22335e" }}
+            style={{ width: "182px", height: "264px", background: "#23252B" }}
           ></div>
           <div className="pt-2">
             <div
-              style={{ background: "#22335e", width: "182px", height: "24px" }}
+              style={{ background: "#23252B", width: "182px", height: "24px" }}
               className="mb-2 animate-loading rounded-md shadow-md"
             ></div>
           </div>
@@ -68,11 +68,11 @@ export default function Loading() {
         <div>
           <div
             className="rounded-md shadow-md animate-loading"
-            style={{ width: "182px", height: "264px", background: "#22335e" }}
+            style={{ width: "182px", height: "264px", background: "#23252B" }}
           ></div>
           <div className="pt-2">
             <div
-              style={{ background: "#22335e", width: "182px", height: "24px" }}
+              style={{ background: "#23252B", width: "182px", height: "24px" }}
               className="mb-2 animate-loading rounded-md shadow-md"
             ></div>
           </div>
@@ -80,11 +80,11 @@ export default function Loading() {
         <div>
           <div
             className="rounded-md shadow-md animate-loading"
-            style={{ width: "182px", height: "264px", background: "#22335e" }}
+            style={{ width: "182px", height: "264px", background: "#23252B" }}
           ></div>
           <div className="pt-2">
             <div
-              style={{ background: "#22335e", width: "182px", height: "24px" }}
+              style={{ background: "#23252B", width: "182px", height: "24px" }}
               className="mb-2 animate-loading rounded-md shadow-md"
             ></div>
           </div>
@@ -92,11 +92,11 @@ export default function Loading() {
         <div>
           <div
             className="rounded-md shadow-md animate-loading"
-            style={{ width: "182px", height: "264px", background: "#22335e" }}
+            style={{ width: "182px", height: "264px", background: "#23252B" }}
           ></div>
           <div className="pt-2">
             <div
-              style={{ background: "#22335e", width: "182px", height: "24px" }}
+              style={{ background: "#23252B", width: "182px", height: "24px" }}
               className="mb-2 animate-loading rounded-md shadow-md"
             ></div>
           </div>

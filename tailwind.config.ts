@@ -19,7 +19,9 @@ const config = {
     },
     extend: {
       colors: {
-        'base-color':'rgb(15 23 42)',        
+        'base-color':'#000000',    
+        'shade-color':'#23252B',
+        'bright':"white",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

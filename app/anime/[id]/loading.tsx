@@ -3,7 +3,7 @@ export default async function LoadingAnime() {
 
   return (
     <div className="w-full h-full min-h-dvh">
-      <div className="lg:h-80 sm:h-60 h-40 bg-[#22335e] ">
+      <div className="lg:h-80 sm:h-60 h-40 bg-shade-color ">
         <div className="relative w-full h-full">
           <div
             className="rounded-md shadow-md "
@@ -12,10 +12,10 @@ export default async function LoadingAnime() {
         </div>
       </div>
       <div className="flex w-full justify-center h-[100px]">
-        <div className="animate-loading mr-4 rounded bg-[#1f2e55] flex flex-col items-center justify-end ml-2 h-36 w-24 sm:h-52 sm:w-36 lg:h-264 lg:w-185 relative lg:top-[-8rem] sm:top-[-6rem] top-[-4rem]">
+        <div className="animate-loading mr-4 rounded bg-shade-color flex flex-col items-center justify-end ml-2 h-36 w-24 sm:h-52 sm:w-36 lg:h-264 lg:w-185 relative lg:top-[-8rem] sm:top-[-6rem] top-[-4rem]">
           <div className="flex justify-between items-center relative bottom-[-40px]"></div>
         </div>
-        <div className="animate-loading bg-[#1f2e55] w-7/12 sm:w-8/12 lg:w-8/12  p-5 mt-5 h-96 rounded"></div>
+        <div className="animate-loading bg-shade-color w-7/12 sm:w-8/12 lg:w-8/12  p-5 mt-5 h-96 rounded"></div>
       </div>
       <div className="flex w-full justify-center">
         {/* <div className=" bg-red-500 flex flex-col  ml-2 h-52 w-24 sm:h-52 sm:w-36 lg:h-264 lg:w-185 relative ">

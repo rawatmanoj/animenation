@@ -26,7 +26,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="fixed bg-base-color z-[50000] max-w-[100%] pr-5 flex justify-between items-center h-16 w-full text-white">
+    <div className="fixed bg-shade-color z-[50000] max-w-[100%] pr-5 flex justify-between items-center h-16 w-full text-white">
       {/* Logo */}
       <div className="flex items-center pl-2">
         {/* Desktop Navigation */}
