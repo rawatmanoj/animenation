@@ -1,67 +1,71 @@
 "use client";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 import { Card } from "../ui/card";
 import { ScrollArea } from "../ui/scroll-area";
 import { Separator } from "../ui/separator";
-import { ANIME, IAnimeEpisode, META } from "@consumet/extensions";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
-import { redirect, useParams, useSearchParams } from "next/navigation";
-import axios from "axios";
-import { useRouter } from "next/navigation";
+import { IAnimeEpisode } from "@consumet/extensions";
+import { Tabs, TabsList, TabsTrigger } from "../ui/tabs";
+import { useSearchParams } from "next/navigation";
 import { Pause, PlayCircle } from "lucide-react";
 import { Lato } from "next/font/google";
 const lato = Lato({ weight: "400", subsets: ["latin"] });
 
 export default function EpisodeList({
-  animeId,
+  epsiodes,
   handleEpisodeClick,
   handleTabClick,
-}: any) {
+  type,
+}: {
+  epsiodes: IAnimeEpisode[] | null;
+  handleEpisodeClick: (id: string) => void;
+  handleTabClick: (tab: string) => void;
+  type: string;
+}) {
   //   const searchParams = new URLSearchParams(req.nextUrl.searchParams);
 
-  const anilist = useMemo(() => {
-    return new META.Anilist(new ANIME.Gogoanime());
-  }, []);
   const params = useSearchParams();
-  const type = params.get("type") || "subs";
-  const currentEpisode = params.get("episode");
-  const [epsiodes, setEpisodes] = useState<IAnimeEpisode[] | null>(null);
-  useEffect(() => {
-    const getEpisodes = async () => {
-      if (type === "subs") {
-        const subEps = await axios
-          .get("/api/anime/" + animeId + "/eps", {
-            params: {
-              provider: "",
-              type: "subs",
-            },
-          })
-          .catch(() => null);
-        console.log(subEps, "subEpssubEps");
-        setEpisodes(subEps?.data?.sub);
-      } else {
-        const dubEps = await axios
-          .get("/api/anime/" + animeId + "/eps", {
-            params: {
-              provider: "",
-              type: "dubs",
-            },
-          })
-          .catch(() => null);
-        setEpisodes(dubEps?.data?.dub);
-      }
-    };
+  let currentEpisodeFroms = params.get("episode");
+  if (type === "dubs")
+    currentEpisodeFroms =
+      currentEpisodeFroms?.replace("dub-episode", "episode") || null;
 
-    getEpisodes();
-  }, [animeId, anilist, type]);
+  const [currentEpisode, setCurrentEpisode] = useState(currentEpisodeFroms);
 
-  console.log(epsiodes, "brrr");
+  console.log(currentEpisode, epsiodes, "epsiodesepsiodes");
 
   return (
-    <Card className={`w-full bg-base-color border-0`}>
+    <div className={`w-full bg-base-color border-0`}>
+      <ScrollArea className="h-[45rem] w-full rounded-md border-0 bg-shade-color text-bright">
+        <div className="p-4">
+          {epsiodes?.map((episode) => (
+            <div key={episode.id}>
+              <div
+                onClick={() => {
+                  handleEpisodeClick(episode.id);
+                  // setCurrentEpisode(episode.id);
+                }}
+                style={{ fontWeight: "600" }}
+                className={`${
+                  currentEpisodeFroms === episode.id ? "text-special" : ""
+                } text-sm flex justify-between hover:text-special cursor-pointer ${
+                  lato.className
+                } `}
+              >
+                {episode.title}
+                {currentEpisodeFroms === episode.id ? (
+                  <Pause />
+                ) : (
+                  <PlayCircle />
+                )}
+              </div>
+              <Separator className="my-2" />
+            </div>
+          ))}
+        </div>
+      </ScrollArea>
       <Tabs
-        defaultValue="subs"
-        className="w-full  flex justify-center items-center "
+        defaultValue={type}
+        className="w-full  flex justify-center items-center mt-2"
       >
         <TabsList className="bg-shade-color text-bright ">
           <TabsTrigger
@@ -79,33 +83,7 @@ export default function EpisodeList({
             Dubs
           </TabsTrigger>
         </TabsList>
-        {/* <TabsContent value="account">
-          Make changes to your account here.
-        </TabsContent>
-        <TabsContent value="password">Change your password here.</TabsContent> */}
       </Tabs>
-
-      <ScrollArea className="h-[45rem] w-full rounded-md border-0 bg-shade-color text-bright mt-2">
-        <div className="p-4">
-          {epsiodes?.map((episode) => (
-            <div key={episode.id}>
-              <div
-                onClick={() => handleEpisodeClick(episode.id)}
-                style={{ fontWeight: "600" }}
-                className={`${
-                  currentEpisode === episode.id ? "text-special" : ""
-                } text-sm flex justify-between hover:text-special cursor-pointer ${
-                  lato.className
-                } `}
-              >
-                {episode.title}
-                {currentEpisode === episode.id ? <Pause /> : <PlayCircle />}
-              </div>
-              <Separator className="my-2" />
-            </div>
-          ))}
-        </div>
-      </ScrollArea>
-    </Card>
+    </div>
   );
 }

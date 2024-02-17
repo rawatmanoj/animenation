@@ -28,6 +28,7 @@ export default async function Watch({
   const res: ISource | null = await anilist
     .fetchEpisodeSources(searchParams?.episode || "")
     .catch(() => null);
+
   // const res = await axios.get(
   //   `https://march-api1.vercel.app/meta/anilist/watch/kimetsu-no-yaiba-episode-1?provider=gogoanime`
   // );
