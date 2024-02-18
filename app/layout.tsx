@@ -30,7 +30,7 @@ export default function RootLayout({
         <NextAuthProvider>
           <Header />
           <Suspense fallback={<HomeHeaderLoader />}>
-            <div className="pt-12 ml-2 mr-2">{children}</div>
+            <div className="pt-12 ml-2">{children}</div>
           </Suspense>
         </NextAuthProvider>
       </body>

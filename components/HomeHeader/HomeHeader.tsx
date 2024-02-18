@@ -17,7 +17,7 @@ export type HomeHeaderProps = {
 };
 export default function HomeHeader({ result }: HomeHeaderProps) {
   return (
-    <div className="mt-5 w-full min-h-96 ">
+    <div className="mt-5 w-full mb-5">
       <Carousel
         plugins={[
           Autoplay({
@@ -30,14 +30,14 @@ export default function HomeHeader({ result }: HomeHeaderProps) {
         }}
         className="min-w-full max-w-xs "
       >
-        <CarouselContent className="w-full min-h-96 ">
+        <CarouselContent className="w-full ">
           {result?.results.map((info, index) => {
             if (index <= 10)
               return (
                 <CarouselItem key={info?.id} className="basis-[100%] ">
                   <div
                     key={info.id}
-                    className="w-full md:h-[500px] h-[300px] relative"
+                    className="w-full md:h-[500px] h-[250px] relative"
                   >
                     <Image
                       className="rounded-md shadow-md opacity-25"
