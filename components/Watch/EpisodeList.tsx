@@ -63,27 +63,6 @@ export default function EpisodeList({
           ))}
         </div>
       </ScrollArea>
-      <Tabs
-        defaultValue={type}
-        className="w-full  flex justify-center items-center mt-2"
-      >
-        <TabsList className="bg-shade-color text-bright ">
-          <TabsTrigger
-            className="data-[state=active]:bg-special"
-            onClick={() => handleTabClick("subs")}
-            value="subs"
-          >
-            Subs
-          </TabsTrigger>
-          <TabsTrigger
-            className="data-[state=active]:bg-special"
-            onClick={() => handleTabClick("dubs")}
-            value="dubs"
-          >
-            Dubs
-          </TabsTrigger>
-        </TabsList>
-      </Tabs>
     </div>
   );
 }
