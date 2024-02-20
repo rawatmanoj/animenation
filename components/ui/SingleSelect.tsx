@@ -43,7 +43,7 @@ export function SingleSelect({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between bg-transparent text-muted-foreground"
+          className="md:w-[200px] w-full justify-between bg-transparent text-muted-foreground "
         >
           {value
             ? lists.find((list) => list.value === value)?.label

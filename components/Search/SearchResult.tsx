@@ -44,7 +44,7 @@ export default function SearchResult({
   }
   return (
     <div>
-      <div className="md:flex gap-4 flex-wrap">
+      <div className="">
         <div>
           <div>Genres</div>
           <FancyMultiSelect
@@ -82,13 +82,7 @@ export default function SearchResult({
           <FancyMultiSelect submitSearch={submitSearch} lists={airingStatus} />
         </div> */}
       </div>
-      <div
-        // style={{
-        //   display: "grid",
-        //   gridTemplateColumns: "repeat(auto-fit,minmax(100px,1fr))",
-        // }}
-        className="grid 2xl:grid-cols-7 xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2"
-      >
+      <div className="grid 2xl:grid-cols-7 xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2">
         {!isPendingTrans ? (
           result?.results.map((info: any) => {
             return (
