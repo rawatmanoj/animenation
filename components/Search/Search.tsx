@@ -1,11 +1,18 @@
 "use client";
 import { META } from "@consumet/extensions";
-import { redirect, useRouter } from "next/navigation";
+import {
+  redirect,
+  useParams,
+  useRouter,
+  useSearchParams,
+} from "next/navigation";
 import React, { FormEvent } from "react";
 import { FaSearch } from "react-icons/fa";
 
-export default function Search() {
+export default function Search(props: any) {
   const route = useRouter();
+  const searchDefault = useSearchParams().get("search");
+
   function handleSearch(event: any) {
     event.preventDefault();
     let value = event?.target[0].value;
@@ -18,6 +25,7 @@ export default function Search() {
       <form onSubmit={handleSearch}>
         <input
           //   type="submit"
+          defaultValue={searchDefault || ""}
           className="bg-base-color rounded pl-2 pt-1 pb-1 text-xl"
           width={400}
           height={80}

@@ -33,7 +33,9 @@ export default async function Search(props: any) {
 
   return (
     <div className="mt-20 w-4/4 sm:w-3/4 m-auto">
-      <div className="text-2xl">Search result for {id}</div>
+      <div className="text-2xl">
+        Search result for <span className="text-special">{id}</span>
+      </div>
       <SearchResult
         paramGenres={paramGenres}
         paramYear={paramYear}
