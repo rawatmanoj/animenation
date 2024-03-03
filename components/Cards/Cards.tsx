@@ -28,7 +28,7 @@ const ReusableCard = ({ imageUrl, title, rating, id }: ReusableCardTypes) => {
             alt="Card Image"
             // width={185}
             loading="eager"
-            quality={100}
+            quality={50}
             fill={true}
             objectFit="cover"
             // style={{ minHeight: "264px" }}
