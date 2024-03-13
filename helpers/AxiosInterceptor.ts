@@ -160,3 +160,123 @@ export const getAnime = async (id:any) => {
   const res = await response.json();
   return res.data;
 };
+export const getQuery = async (id:any) => {
+  let query = `
+  query ($search: String, $isAdult: Boolean) {
+    anime: Page(perPage: 2) {
+      pageInfo {
+        total
+      }
+      results: media(type: ANIME, isAdult: $isAdult, search: $search) {
+        id
+        title {
+          userPreferred
+        }
+        coverImage {
+          medium
+        }
+        type
+        format
+        bannerImage
+        isLicensed
+        startDate {
+          year
+        }
+      }
+    }
+    manga: Page(perPage: 2) {
+      pageInfo {
+        total
+      }
+      results: media(type: MANGA, isAdult: $isAdult, search: $search) {
+        id
+        title {
+          userPreferred
+        }
+        coverImage {
+          medium
+        }
+        type
+        format
+        bannerImage
+        isLicensed
+        startDate {
+          year
+        }
+      }
+    }
+    characters: Page(perPage: 2) {
+      pageInfo {
+        total
+      }
+      results: characters(search: $search) {
+        id
+        name {
+          userPreferred
+        }
+        image {
+          medium
+        }
+      }
+    }
+    staff: Page(perPage: 2) {
+      pageInfo {
+        total
+      }
+      results: staff(search: $search) {
+        id
+        primaryOccupations
+        name {
+          userPreferred
+        }
+        image {
+          medium
+        }
+      }
+    }
+    studios: Page(perPage: 2) {
+      pageInfo {
+        total
+      }
+      results: studios(search: $search) {
+        id
+        name
+      }
+    }
+    users: Page(perPage: 2) {
+      results: users(search: $search) {
+        id
+        name
+        avatar {
+          medium
+        }
+      }
+    }
+  }
+  
+  `;
+
+
+  let url = 'https://graphql.anilist.co';
+  let options = (query:any) => {
+    return {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        query: query,
+        variables: {
+          isAdult:false,
+          search:id
+        },
+      }),
+    };
+  }
+  const response = await fetch(url, options(query));
+  const res = await response.json();
+  return res.data;
+};
+
+

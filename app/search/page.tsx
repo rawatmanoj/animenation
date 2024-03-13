@@ -19,12 +19,13 @@ export default async function Search(props: any) {
   const id = props?.searchParams?.search;
   const paramYear = props?.searchParams?.year;
   const paramGenres = props?.searchParams?.genres?.split(",") || undefined;
+  const paramFormat = props?.searchParams?.format?.split(",") || undefined;
   let result = await anilist.advancedSearch(
     id,
     undefined,
     undefined,
     undefined,
-    undefined,
+    paramFormat,
     undefined,
     paramGenres,
     undefined,

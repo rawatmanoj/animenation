@@ -17,10 +17,10 @@ export type ReusableCardTypes = {
 const ReusableCard = ({ imageUrl, title, rating, id }: ReusableCardTypes) => {
   return (
     <div className="m-2 relative">
-      <div className="font-bold rounded-md m-1 p-1 h-1/8 bg-black opacity-70 absolute text-xs">
-        {rating && (rating / 10).toFixed(1)}
-      </div>
-      <div style={{ minHeight: "264px" }} className="relative">
+      <div style={{ aspectRatio: "2/3" }} className="relative">
+        <div className="font-bold rounded-md m-1 p-1 h-1/8 bg-black opacity-70 absolute text-xs z-10">
+          {rating && (rating / 10).toFixed(1)}
+        </div>
         <Link prefetch={false} href={`/anime/${id}`}>
           <Image
             className="rounded-md shadow-md "
@@ -31,6 +31,7 @@ const ReusableCard = ({ imageUrl, title, rating, id }: ReusableCardTypes) => {
             quality={50}
             fill={true}
             objectFit="cover"
+
             // style={{ minHeight: "264px" }}
           />
         </Link>

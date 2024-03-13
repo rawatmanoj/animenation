@@ -56,7 +56,7 @@ export default async function Anime({ params: { id } }: AnimeProps) {
               href={`/anime/watch/${id}?episode=${
                 (animeInfo &&
                   animeInfo?.episodes &&
-                  animeInfo?.episodes[0].id) ||
+                  animeInfo?.episodes[0]?.id) ||
                 ""
               }`}
             >

@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import HomeHeaderLoader from "@/components/HomeHeader/HomeHeaderLoader";
 import NextAuthProvider from "@/components/Providers/NextAuthProvider";
 import Head from "next/head";
+// import { BottomSheetHelper } from "@/components/Dialog/Dialog";
 const roboto = Roboto({ weight: "100", subsets: ["latin"] });
 const lato = Lato({ weight: "400", subsets: ["latin"] });
 
@@ -28,10 +29,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${lato.className} text-white mb-2 bg-base-color`}>
         <NextAuthProvider>
+          {/* <BottomSheetHelper> */}
           <Header />
           <Suspense fallback={<HomeHeaderLoader />}>
             <div className="pt-12 ml-2">{children}</div>
           </Suspense>
+          {/* </BottomSheetHelper> */}
         </NextAuthProvider>
       </body>
     </html>

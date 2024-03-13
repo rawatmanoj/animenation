@@ -109,3 +109,6 @@ export const year = [{
     value:"2019",
     label:"2019"
 }]
+
+//(options: `TV`, `TV_SHORT`, `MOVIE`, `SPECIAL`, `OVA`, `ONA`, `MUSIC`)
+

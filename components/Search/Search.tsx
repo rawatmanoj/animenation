@@ -6,12 +6,16 @@ import {
   useRouter,
   useSearchParams,
 } from "next/navigation";
-import React, { FormEvent } from "react";
+import React, { FormEvent, useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import { DialogComp } from "../Dialog/Dialog";
+import { Dialog } from "../ui/dialog";
+// import { Dialog } from "../Dialog/Dialog";
 
 export default function Search(props: any) {
   const route = useRouter();
   const searchDefault = useSearchParams().get("search");
+  const [isDialogaOpen, setIsDialogOpen] = useState(false);
 
   function handleSearch(event: any) {
     event.preventDefault();
@@ -19,10 +23,15 @@ export default function Search(props: any) {
     //console.log(event?.target as Array<HTMLInputElement>, "evvenmt");
     route.push(`/search?search=${value}`);
   }
+
+  const handleClick = () => {
+    setIsDialogOpen(!isDialogaOpen);
+  };
+
   return (
     <div className="flex items-center justify-around mr-5 flex-2 text-slate-300">
-      <FaSearch className="mr-2 text-2xl " />
-      <form onSubmit={handleSearch}>
+      <DialogComp />
+      {/* <form onSubmit={handleSearch}>
         <input
           //   type="submit"
           defaultValue={searchDefault || ""}
@@ -32,7 +41,7 @@ export default function Search(props: any) {
           name="search"
           placeholder="Search"
         />
-      </form>
+      </form> */}
     </div>
   );
 }
