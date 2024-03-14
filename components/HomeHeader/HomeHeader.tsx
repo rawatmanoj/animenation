@@ -30,7 +30,7 @@ export default function HomeHeader({ result }: HomeHeaderProps) {
         }}
         className="min-w-full max-w-xs "
       >
-        <CarouselContent className="w-full ">
+        <CarouselContent className="min-w-full ">
           {result?.results.map((info, index) => {
             if (index <= 10)
               return (

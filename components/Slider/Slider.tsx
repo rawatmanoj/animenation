@@ -32,7 +32,7 @@ export default function Slider({ result, heading }: SliderProps) {
             return (
               <CarouselItem
                 key={info?.id}
-                className="basis-[40%] sm:basis-[30%] md:basis-[20%] lg:basis-[12%] "
+                className="basis-[40%] sm:basis-[30%] md:basis-[20%] lg:basis-[14%] "
               >
                 <ReusableCard
                   imageUrl={info.image}

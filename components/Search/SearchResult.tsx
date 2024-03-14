@@ -33,6 +33,12 @@ const kindOfReducer: ReducerType = (state, action) => {
         genres: [...action.payload],
       };
     }
+    case "updateformat": {
+      return {
+        ...state,
+        format: [...action.payload],
+      };
+    }
 
     default: {
       return { ...state };
@@ -102,6 +108,10 @@ export default function SearchResult({
         type: "updateGenre",
         payload: updateData,
       });
+      setOptimisticFilterState({
+        type: "updateformat",
+        payload: updateData,
+      });
       router.push(`/search?${params}`);
     });
   }
@@ -109,9 +119,9 @@ export default function SearchResult({
   return (
     <div>
       <div className="md:flex gap-4 flex-wrap">
-        <div>
+        <div className="w-full">
           <Accordion type="single" collapsible className="">
-            <AccordionItem value="item-1 w-full">
+            <AccordionItem value="item-1">
               <AccordionTrigger className="hover:no-underline font-bold">
                 Geners
               </AccordionTrigger>
@@ -164,7 +174,7 @@ export default function SearchResult({
                 })}
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-2 w-full">
+            <AccordionItem value="item-2 ">
               <AccordionTrigger className="hover:no-underline font-bold">
                 Format
               </AccordionTrigger>

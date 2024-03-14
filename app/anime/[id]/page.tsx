@@ -18,6 +18,7 @@ export default async function Anime({ params: { id } }: AnimeProps) {
   let animeInfo;
   let res;
   const anilist = new META.Anilist(new ANIME.Gogoanime());
+  // const anilist = new META.Anilist();
   try {
     animeInfo = await anilist.fetchAnimeInfo(id);
     // const servers = await anilist.fetchAnilistInfoById(id);
@@ -26,6 +27,8 @@ export default async function Anime({ params: { id } }: AnimeProps) {
     // animeInfo = await getAnime(id);
     // console.log(animeInfo?.Media?.studios.nodes, "animeinfoooo");
   }
+
+  console.log(animeInfo, "animeInfoanimeInfoanimeInfo");
 
   return (
     <div className="w-full h-full min-h-dvh">
