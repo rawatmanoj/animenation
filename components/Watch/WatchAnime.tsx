@@ -106,14 +106,14 @@ export default function WatchAnime({ id, sources }: any) {
   };
 
   return (
-    <div className="grid grid-cols-4 gap-1">
+    <div className="grid md:grid-cols-4 gap-1 md:mr-2">
       <EpisodeList
         handleTabClick={handleTabClick}
         handleEpisodeClick={handleEpisodeClick}
         epsiodes={epsiodes}
         type={typeParams}
       />
-      <div className="w-[97%] mx-auto col-span-3">
+      <div className="md:w-[97%] mx-auto md:col-span-3 md:order-last order-first">
         <VideoPlayer
           resources={sources}
           isPendingTrans={isPendingTrans}

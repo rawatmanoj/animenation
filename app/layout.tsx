@@ -32,7 +32,7 @@ export default function RootLayout({
           {/* <BottomSheetHelper> */}
           <Header />
           <Suspense fallback={<HomeHeaderLoader />}>
-            <div className="pt-12 ml-2">{children}</div>
+            <div className="pt-12 mx-2">{children}</div>
           </Suspense>
           {/* </BottomSheetHelper> */}
         </NextAuthProvider>
