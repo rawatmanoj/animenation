@@ -28,27 +28,23 @@ import { getQuery } from "@/helpers/AxiosInterceptor";
 import Image from "next/image";
 import Link from "next/link";
 
+type ExtrasFields = {
+  id: number;
+  bannerImage?: string;
+  coverImage?: { medium: string };
+  name?: { userPreferred: string } | string;
+  avatar?: { medium?: string };
+  image?: { medium: string };
+  title?: { userPreferred?: string };
+};
+
 type DataType = {
-  anime: (IAnimeResult & {
-    bannerImage?: string;
-    coverImage?: { medium: string };
-  })[];
-  characters: {
-    id: number;
-    image: { medium: string };
-    name: { userPreferred: string };
-  }[];
-  manga: (IMangaResult & {
-    bannerImage?: string;
-    coverImage: { medium: string };
-  })[];
-  staff: {
-    id: number;
-    image?: { medium?: string };
-    name: { userPreferred: string };
-  }[];
-  studios: { id: number; name: string }[];
-  users: { id: number; name: string; avatar?: { medium?: string } }[];
+  anime: (IAnimeResult & ExtrasFields)[];
+  characters: ExtrasFields[];
+  manga: (IMangaResult & ExtrasFields)[];
+  staff: ExtrasFields[];
+  studios: ExtrasFields[];
+  users: ExtrasFields[];
 };
 
 export function DialogComp() {
@@ -91,7 +87,7 @@ export function DialogComp() {
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
-                    handleSubmit(e?.target[0].value);
+                    handleSubmit((e?.target as any)[0].value);
                   }}
                 >
                   <Input
@@ -107,6 +103,7 @@ export function DialogComp() {
           </div>
           <div className="pl-2">
             {Object.entries(searchData).map((data, index) => {
+              console.log(data, "datadatadata");
               return (
                 <div key={index} className="grid mb-2">
                   {data[1]?.length > 0 && (
@@ -121,8 +118,8 @@ export function DialogComp() {
                         </Link>
                       </div>
 
-                      {data[1]?.map((anime) => {
-                        console.log(anime, "anime");
+                      {data[1]?.map((anime: any) => {
+                        console.log(anime, "animeanime");
                         return (
                           <Link
                             className="flex h-[40px] mb-1 cursor-pointer hover:bg-[#393c46]"
