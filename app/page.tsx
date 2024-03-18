@@ -40,7 +40,7 @@ export default async function Home() {
           <ReleasingAnime />
         </Suspense>
       </div>
-      <div className="mt-5 mr-2 col-span-2 flex items-center flex-col">
+      <div className="mt-5 col-span-2 flex items-center flex-col">
         <div className="pt-4 pb-4 flex justify-between w-4/5">
           <div className="text-xl font-bold text-special">Top 10</div>
           <div className="flex gap-2">
