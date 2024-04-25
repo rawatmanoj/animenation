@@ -28,8 +28,6 @@ export default async function Anime({ params: { id } }: AnimeProps) {
     // console.log(animeInfo?.Media?.studios.nodes, "animeinfoooo");
   }
 
-  console.log(animeInfo, "animeInfoanimeInfoanimeInfo");
-
   return (
     <div className="w-full h-full min-h-dvh">
       <div className="lg:h-80 sm:h-60 h-40 ">

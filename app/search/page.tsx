@@ -9,12 +9,12 @@ import {
   season,
   year,
 } from "@/helpers/constants";
-import { META } from "@consumet/extensions";
+import { ANIME, META } from "@consumet/extensions";
 import { redirect } from "next/navigation";
 import React from "react";
 
 export default async function Search(props: any) {
-  const anilist = new META.Anilist();
+  const anilist = new META.Anilist(new ANIME.Gogoanime());
   const searchParams = new URLSearchParams(props?.searchParams).toString();
   const id = props?.searchParams?.search;
   const paramYear = props?.searchParams?.year;

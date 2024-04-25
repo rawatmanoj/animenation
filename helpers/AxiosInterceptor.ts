@@ -305,6 +305,7 @@ export const getSeasonalAnime = async () => {
         id
         title {
           userPreferred
+          native
         }
         coverImage {
           extraLarge

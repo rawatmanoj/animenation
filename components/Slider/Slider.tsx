@@ -15,6 +15,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { HoverCard } from "../ui/hover-card";
+import { HoverCardReusableContent } from "../HoverCard/HoverCard";
 
 export default function Slider({ result, heading }: SliderProps) {
   return (
@@ -34,12 +36,15 @@ export default function Slider({ result, heading }: SliderProps) {
                 key={info?.id}
                 className="basis-[40%] sm:basis-[30%] md:basis-[20%] lg:basis-[14%] "
               >
-                <ReusableCard
-                  imageUrl={info.image}
-                  title={info?.title as ReusableCardTypes["title"]}
-                  rating={info?.rating}
-                  id={info?.id}
-                />
+                <HoverCard openDelay={200} closeDelay={0}>
+                  <ReusableCard
+                    imageUrl={info.image}
+                    title={info?.title as ReusableCardTypes["title"]}
+                    rating={info?.rating}
+                    id={info?.id}
+                  />
+                  <HoverCardReusableContent info={info} />
+                </HoverCard>
               </CarouselItem>
             );
           })}

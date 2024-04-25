@@ -1,6 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "../ui/hover-card";
+import { HoverCardReusableContent } from "../HoverCard/HoverCard";
 
 export type ReusableCardTypes = {
   imageUrl: string | undefined;
@@ -21,20 +27,22 @@ const ReusableCard = ({ imageUrl, title, rating, id }: ReusableCardTypes) => {
         <div className="font-bold rounded-md m-1 p-1 h-1/8 bg-black opacity-70 absolute text-xs z-10">
           {rating && (rating / 10).toFixed(1)}
         </div>
-        <Link prefetch={false} href={`/anime/${id}`}>
-          <Image
-            className="rounded-md shadow-md "
-            src={imageUrl || ""}
-            alt="Card Image"
-            // width={185}
-            loading="eager"
-            quality={50}
-            fill={true}
-            objectFit="cover"
+        <HoverCardTrigger asChild>
+          <Link prefetch={false} href={`/anime/${id}`}>
+            <Image
+              className="rounded-md shadow-md "
+              src={imageUrl || ""}
+              alt="Card Image"
+              // width={185}
+              loading="eager"
+              quality={50}
+              fill={true}
+              objectFit="cover"
 
-            // style={{ minHeight: "264px" }}
-          />
-        </Link>
+              // style={{ minHeight: "264px" }}
+            />
+          </Link>
+        </HoverCardTrigger>
       </div>
       <div className="pt-1 w-40">
         <div className="text-xs md:text-sm font-semibold mb-2 w-3/4 md:w-4/4">

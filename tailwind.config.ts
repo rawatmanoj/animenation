@@ -22,7 +22,7 @@ const config = {
         'base-color':'#000000',    
         'shade-color':'#23252B',
         'bright':"white",
-        'special':'#ff7d4d',
+        'special':'#FF4500',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

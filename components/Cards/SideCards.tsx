@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Badge } from "../ui/badge";
+import { HoverCardTrigger } from "../ui/hover-card";
 
 export type ReusableCardTypes = {
   imageUrl: string | undefined;
@@ -41,21 +42,22 @@ const SideReusableCard = ({
         style={{ aspectRatio: "4/5", width: "80px" }}
         className="relative mr-2 ml-4"
       >
-        <Link prefetch={false} href={`/anime/${id}`}>
-          <Image
-            className="rounded-md shadow-md "
-            src={imageUrl || ""}
-            alt="Card Image"
-            // width={185}
-            loading="eager"
-            quality={50}
-            fill={true}
-            objectFit="cover"
+        <HoverCardTrigger asChild>
+          <Link prefetch={false} href={`/anime/${id}`}>
+            <Image
+              className="rounded-md shadow-md "
+              src={imageUrl || ""}
+              alt="Card Image"
+              // width={185}
+              loading="eager"
+              quality={50}
+              fill={true}
+              objectFit="cover"
 
-            // style={{ minHeight: "264px" }}
-          />
-        </Link>
-        d
+              // style={{ minHeight: "264px" }}
+            />
+          </Link>
+        </HoverCardTrigger>
       </div>
       <div className="pt-1 w-full">
         <div className="text-xs md:text-sm font-semibold mb-2 w-3/4 md:w-4/4 text-slate-300">

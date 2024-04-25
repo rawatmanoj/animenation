@@ -4,15 +4,17 @@ import ReleasingAnime from "@/components/Home/ReleasingAnime/ReleasingAnime";
 import TrendingAnime from "@/components/Home/TrendingAnime/TrendingAnime";
 import { Suspense } from "react";
 import Loading from "../components/loading";
-import { IAnimeResult, ISearch, META } from "@consumet/extensions";
+import { ANIME, IAnimeResult, ISearch, META } from "@consumet/extensions";
 import HomeHeader from "@/components/HomeHeader/HomeHeader";
 import HomeHeaderLoader from "@/components/HomeHeader/HomeHeaderLoader";
 import { Card, CardHeader } from "@/components/ui/card";
 import SideReusableCard from "@/components/Cards/SideCards";
 import { getSeasonalAnime } from "@/helpers/AxiosInterceptor";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { HoverCard } from "@/components/ui/hover-card";
+import { HoverCardReusableContent } from "@/components/HoverCard/HoverCard";
 export default async function Home() {
-  const animeProvider = new META.Anilist();
+  const animeProvider = new META.Anilist(new ANIME.Gogoanime());
   const delay = (func: any): Promise<ISearch<IAnimeResult> | undefined> => {
     return new Promise((res, rej) => {
       setTimeout(() => {
@@ -23,8 +25,6 @@ export default async function Home() {
   const result = await animeProvider.fetchTrendingAnime();
   const trendingToday = await getSeasonalAnime();
   // const trendingToday = await animeProvider.fetchTrendingAnime();
-
-  console.log(trendingToday?.Page?.media, "trendingTodaytrendingToday");
 
   return (
     <main className="grid grid-cols-8 min-h-screen min-w-screen gap-2 ">
@@ -86,14 +86,17 @@ export default async function Home() {
                 className="text-white pt-4 pb-4 m-2 border-b-[1px] border-[#505562]"
                 // className="basis-[40%] sm:basis-[30%] md:basis-[20%] lg:basis-[12%] "
               >
-                <SideReusableCard
-                  imageUrl={info.image || info?.coverImage?.large}
-                  title={info?.title as ReusableCardTypes["title"]}
-                  rating={info?.rating || info?.averageScore}
-                  id={info?.id}
-                  index={index}
-                  duration={info?.duration}
-                />
+                <HoverCard openDelay={200} closeDelay={0}>
+                  <SideReusableCard
+                    imageUrl={info.image || info?.coverImage?.large}
+                    title={info?.title as ReusableCardTypes["title"]}
+                    rating={info?.rating || info?.averageScore}
+                    id={info?.id}
+                    index={index}
+                    duration={info?.duration}
+                  />
+                  <HoverCardReusableContent info={info} />
+                </HoverCard>
               </div>
             );
           })}
