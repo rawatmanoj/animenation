@@ -29,23 +29,20 @@ export default function Slider({ result, heading }: SliderProps) {
         }}
         className="min-w-full  max-w-sm "
       >
-        <CarouselContent className="w-full">
+        <CarouselContent className="">
           {result?.results.map((info) => {
             return (
-              <CarouselItem
-                key={info?.id}
-                className="basis-[40%] sm:basis-[30%] md:basis-[20%] lg:basis-[14%] "
-              >
-                <HoverCard openDelay={200} closeDelay={0}>
+              <HoverCard openDelay={200} closeDelay={0} key={info?.id}>
+                <HoverCardReusableContent info={info} />
+                <CarouselItem className="basis-[40%] sm:basis-[30%] md:basis-[20%] lg:basis-[14%] ">
                   <ReusableCard
                     imageUrl={info.image}
                     title={info?.title as ReusableCardTypes["title"]}
                     rating={info?.rating}
                     id={info?.id}
                   />
-                  <HoverCardReusableContent info={info} />
-                </HoverCard>
-              </CarouselItem>
+                </CarouselItem>
+              </HoverCard>
             );
           })}
         </CarouselContent>
