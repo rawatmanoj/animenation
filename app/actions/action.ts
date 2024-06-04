@@ -26,5 +26,5 @@ export async function submitSearch(selected: any, type: any,searchParams:any) {
         selected && params.set("year", selected);
       }
     }
-    redirect(`/search?${params}`);
+    redirect(`/search/anime?${params}`);
   }

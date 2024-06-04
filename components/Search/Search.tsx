@@ -21,7 +21,7 @@ export default function Search(props: any) {
     event.preventDefault();
     let value = event?.target[0].value;
     //console.log(event?.target as Array<HTMLInputElement>, "evvenmt");
-    route.push(`/search?search=${value}`);
+    route.push(`/search/anime?search=${value}`);
   }
 
   const handleClick = () => {

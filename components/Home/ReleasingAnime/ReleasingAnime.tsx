@@ -1,4 +1,4 @@
-import Slider from "@/components/Slider/Slider";
+import CardGrid from "@/components/CardGrid/CardGrid";
 import { ANIME, META } from "@consumet/extensions";
 import React from "react";
 
@@ -9,7 +9,7 @@ export default async function PopularAnime() {
     undefined,
     undefined,
     undefined,
-    10,
+    24,
     undefined,
     undefined,
     undefined,
@@ -18,5 +18,5 @@ export default async function PopularAnime() {
     "RELEASING"
   );
 
-  return <Slider result={RELEASING} heading="Releasing Anime" />;
+  return <CardGrid result={RELEASING} heading="Releasing Anime" />;
 }

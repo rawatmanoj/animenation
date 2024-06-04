@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   HoverCard,
@@ -25,6 +26,7 @@ export async function HoverCardReusableContent({
       align="center"
       // sideOffset={100}
       alignOffset={100}
+      id={info?.id}
     >
       <div className="flex justify-between space-x-4">
         <div className="space-y-1">

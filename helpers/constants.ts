@@ -85,10 +85,48 @@ export const genres = [{
 },{
     value: "Mystery",
     label: "Mystery",
-},{
+},
+{
     value: "Mecha",
     label: "Mecha",
-}]
+},
+{
+    value: "Mahou Shoujo",
+    label: "Mahou Shoujo",
+},
+{
+    value: "Psychological",
+    label: "Psychological",
+},
+{
+    value: "Romance",
+    label: "Romance",
+},
+{
+    value: "Sci-Fi",
+    label: "Sci-Fi",
+},
+{
+    value: "Sci-Fi",
+    label: "Sci-Fi",
+},
+{
+    value: "Slice of Life",
+    label: "Slice of Life",
+},
+{
+    value: "Sports",
+    label: "Sports",
+},
+{
+    value: "Supernatural",
+    label: "Supernatural",
+},
+{
+    value: "Thriller",
+    label: "Thriller",
+},
+]
 
 export const year = [{
     value:"2024",

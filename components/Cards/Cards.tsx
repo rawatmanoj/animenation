@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import {
   HoverCard,
   HoverCardContent,
@@ -16,7 +16,7 @@ export type ReusableCardTypes = {
     native: string;
     userPreferred: string;
   };
-  rating: number | undefined;
+  rating?: number | undefined;
   id: string;
 };
 

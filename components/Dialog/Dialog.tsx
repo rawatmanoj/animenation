@@ -1,16 +1,7 @@
 /* eslint-disable react/display-name */
 "use client";
 import { Button } from "@/components/ui/button";
-import React, {
-  createRef,
-  forwardRef,
-  memo,
-  useCallback,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useState,
-} from "react";
+import React, { useState } from "react";
 import {
   Dialog,
   DialogClose,
@@ -27,6 +18,7 @@ import { IAnimeResult, IMangaResult, META } from "@consumet/extensions";
 import { getQuery } from "@/helpers/AxiosInterceptor";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type ExtrasFields = {
   id: number;
@@ -51,7 +43,7 @@ export function DialogComp() {
   console.log("Dialog");
   const anilist = new META.Anilist();
   const [searchValue, setSearchValue] = useState("");
-
+  const router = useRouter();
   const [searchData, setSearchData] = useState<DataType>({
     anime: [],
     characters: [],
@@ -60,6 +52,7 @@ export function DialogComp() {
     studios: [],
     users: [],
   });
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   const handleSubmit = async (id: string) => {
     let result = await getQuery(id);
@@ -74,10 +67,11 @@ export function DialogComp() {
     });
   };
   console.log(Object.entries(searchData), "yesss");
+
   return (
     <div>
-      <Dialog>
-        <DialogTrigger asChild>
+      <Dialog open={dialogOpen}>
+        <DialogTrigger onClick={() => setDialogOpen(!dialogOpen)} asChild>
           <FaSearch className="mr-2 text-2xl hover:text-white cursor-pointer" />
         </DialogTrigger>
         <DialogContent className="sm:max-w-[756px] bg-shade-color px-0 pt-0  fixed">
@@ -111,8 +105,9 @@ export function DialogComp() {
                       <div className="flex justify-between text-slate-300 font-bold pr-2">
                         <div className="text-sm">{data[0].toUpperCase()}</div>
                         <Link
-                          href={`/search?search=${searchValue}`}
+                          href={`/search/${data[0]}?search=${searchValue}`}
                           className="text-xs hover:text-special cursor-pointer"
+                          onClick={() => setDialogOpen(!dialogOpen)}
                         >
                           View all {data[0]} results
                         </Link>
@@ -124,7 +119,8 @@ export function DialogComp() {
                           <Link
                             className="flex h-[40px] mb-1 cursor-pointer hover:bg-[#393c46]"
                             key={anime?.id}
-                            href={`/anime/${anime?.id}`}
+                            href={`/${data[0]}/${anime?.id}`}
+                            onClick={() => setDialogOpen(!dialogOpen)}
                           >
                             <div
                               style={{

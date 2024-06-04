@@ -6,24 +6,14 @@ import { Suspense } from "react";
 import Loading from "../components/loading";
 import { ANIME, IAnimeResult, ISearch, META } from "@consumet/extensions";
 import HomeHeader from "@/components/HomeHeader/HomeHeader";
-import HomeHeaderLoader from "@/components/HomeHeader/HomeHeaderLoader";
-import { Card, CardHeader } from "@/components/ui/card";
-import SideReusableCard from "@/components/Cards/SideCards";
-import { getSeasonalAnime } from "@/helpers/AxiosInterceptor";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { HoverCard } from "@/components/ui/hover-card";
-import { HoverCardReusableContent } from "@/components/HoverCard/HoverCard";
+
 import HomeSidebar from "@/components/HomeSidebar/HomeSidebar";
+import { getSeasonalAnime } from "@/helpers/AxiosInterceptor";
+import { HoverCardReusableContent } from "@/components/HoverCard/HoverCard";
+import GenreCard from "@/components/GenreCard/GenreCard";
 export default async function Home() {
   const animeProvider = new META.Anilist(new ANIME.Gogoanime());
-  const delay = (func: any): Promise<ISearch<IAnimeResult> | undefined> => {
-    return new Promise((res, rej) => {
-      setTimeout(() => {
-        res(func);
-      }, 10000);
-    });
-  };
-  const result = await animeProvider.fetchTrendingAnime();
+  const result = await animeProvider.fetchTrendingAnime(1, 24);
   const trendingToday = await getSeasonalAnime("WINTER");
   // const trendingToday = await animeProvider.fetchTrendingAnime();
 
@@ -41,7 +31,10 @@ export default async function Home() {
           <ReleasingAnime />
         </Suspense>
       </div>
-      <HomeSidebar trendingToday={trendingToday} />
+      <div className="mt-5 col-span-2 flex items-center flex-col">
+        <HomeSidebar trendingToday={trendingToday} />
+        <GenreCard />
+      </div>
     </main>
   );
 }

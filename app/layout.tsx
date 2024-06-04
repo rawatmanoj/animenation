@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import HomeHeaderLoader from "@/components/HomeHeader/HomeHeaderLoader";
 import NextAuthProvider from "@/components/Providers/NextAuthProvider";
 import Head from "next/head";
+import NextTopLoader from "nextjs-toploader";
 // import { BottomSheetHelper } from "@/components/Dialog/Dialog";
 const roboto = Roboto({ weight: "100", subsets: ["latin"] });
 const lato = Lato({ weight: "400", subsets: ["latin"] });
@@ -28,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${lato.className} text-white mb-2 bg-base-color`}>
+        <NextTopLoader zIndex={10000} color="#FF4500" />
         <NextAuthProvider>
           {/* <BottomSheetHelper> */}
           <Header />

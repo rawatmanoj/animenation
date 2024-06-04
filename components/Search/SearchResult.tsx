@@ -13,6 +13,8 @@ import {
   AccordionTrigger,
 } from "../ui/accordion";
 import { Badge } from "../ui/badge";
+import { HoverCard } from "../ui/hover-card";
+import { HoverCardReusableContent } from "../HoverCard/HoverCard";
 interface GenreAction {
   type: string;
   payload: any;
@@ -112,7 +114,7 @@ export default function SearchResult({
         type: "updateformat",
         payload: updateData,
       });
-      router.push(`/search?${params}`);
+      router.push(`/search/anime?${params}`);
     });
   }
   console.log(optimisticFilterState, "optimisticFilterState");
@@ -239,12 +241,15 @@ export default function SearchResult({
                 isPendingTrans ? " duration-700 ease-linear animate-pulse" : " "
               }
             >
-              <ReusableCard
-                imageUrl={info.image}
-                title={info?.title as ReusableCardTypes["title"]}
-                rating={info?.rating}
-                id={info?.id}
-              />
+              <HoverCard openDelay={200} closeDelay={0} key={info?.id}>
+                <HoverCardReusableContent info={info} />
+                <ReusableCard
+                  imageUrl={info.image}
+                  title={info?.title as ReusableCardTypes["title"]}
+                  rating={info?.rating}
+                  id={info?.id}
+                />
+              </HoverCard>
             </div>
           );
         })}

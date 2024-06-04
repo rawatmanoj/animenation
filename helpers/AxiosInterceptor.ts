@@ -173,6 +173,56 @@ export const getAnime = async (id: any) => {
   const res = await response.json();
   return res.data;
 };
+
+export const getCharacters = async (search: string) => {
+  let query = `
+  query ($page: Int = 1, $id: Int, $search: String, $isBirthday: Boolean, $sort: [CharacterSort] = [FAVOURITES_DESC]) {
+    Page(page: $page, perPage: 20) {
+      pageInfo {
+        total
+        perPage
+        currentPage
+        lastPage
+        hasNextPage
+      }
+      characters(id: $id, search: $search, isBirthday: $isBirthday, sort: $sort) {
+        id
+        name {
+          userPreferred
+        }
+        image {
+          large
+        }
+      }
+    }
+  }
+  
+  `;
+
+  let url = "https://graphql.anilist.co";
+  let options = (query: any) => {
+    return {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        query: query,
+        variables: {
+          sort: "SEARCH_MATCH",
+          type: "CHARACTERS",
+          search: search
+        },
+      }),
+    };
+  };
+  const response = await fetch(url, options(query));
+  const res = await response.json();
+  return res.data;
+};
+
+
 export const getQuery = async (id: any) => {
   let query = `
   query ($search: String, $isAdult: Boolean) {
